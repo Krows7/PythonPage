@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="container" data-size="{{ phones|length }}">
+        <h1>{% block title %} Comparison List {% endblock %}</h1>
+        <div id="slide-container">
+            <div id="slider">
+                <div id="scroll">
+                    <div id="preview">
+                    <i id="move-left" onclick="move(-200)" class="fa fa-arrow-circle-left fa-5x" aria-hidden="true"></i>
+                    <i id="move-right" onclick="move(200)" class="fa fa-arrow-circle-right fa-5x" aria-hidden="true"></i>
+                    {% for phone in phones %}
+                        <div class="compare-item">
+                            <img width="auto" height="100px" src="{{ url_for('static', filename='img/' + phone['vendor'] + ' ' + phone['model'] + '.png') }}"/>
+                            <h1>{{ phone['vendor'] }}</h1>
+                            <h2>{{ phone['model'] }}</h2>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <div id="price" class="feature">Price ₽ <i onmouseover="markBest(this, false, false, true)" onmouseout="markAll(this, false, true)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['price'] }}">{{ phone['price'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <div style="height: 70px">
+                        <h2 id="mod-header">Features</h2>
+                    </div>
+                    <hr>
+                    <div id="year" class="feature">Year <i onmouseover="markBest(this)" onmouseout="markAll(this)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['create_year'] }}">{{ phone['create_year'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="camera" class="feature">Camera Resolution, MP <i onmouseover="markBest(this)" onmouseout="markAll(this)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['camera_resolution'] }}">{{ phone['camera_resolution'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="mah" class="feature">Battery, mAh <i onmouseover="markBest(this)" onmouseout="markAll(this)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['mah'] }}">{{ phone['mah'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="sim" class="feature">SIM Cards <i onmouseover="markBest(this)" onmouseout="markAll(this)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['sim_cards'] }}">{{ phone['sim_cards'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="weight" class="feature">Weight, g <i onmouseover="markBest(this, false, false, true)" onmouseout="markAll(this, false, true)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['weight'] }}">{{ phone['weight'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="network" class="feature">Available Network <i onmouseover="markBest(this, false, true)" onmouseout="markAll(this, true)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['network'] }}">{{ phone['network'] }}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="buttons" class="feature">Have Buttons <i onmouseover="markBest(this, false, true)" onmouseout="markAll(this, true)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['have_button'] }}">{% if phone['have_button'] %}Yes{% else %}No{% endif %}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="games" class="feature">Installed Games <i onmouseover="markBest(this, false, true)" onmouseout="markAll(this, true)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['have_games'] }}">{% if phone['have_games'] %}Yes{% else %}No{% endif %}</div>
+                    {% endfor %}
+                    </div>
+                    <hr>
+                    <div id="screen" class="feature">Screen Size, inches <i onmouseover="markBest(this)" onmouseout="markAll(this)" class="fa fa-question-circle-o" aria-hidden="true"></i></div>
+                    <div>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-value="{{ phone['screen_size'] }}">{{ phone['screen_size'] }}</div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

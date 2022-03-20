@@ -1,0 +1,157 @@
+body {
+    background-image: url('../img/background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	margin: 0;
+	padding: 0;
+	font-family: Roboto;
+	min-height: 100vh;
+}
+
+#content button {
+    border-radius: 10px;
+    border: none;
+    height: 40px;
+    transition: .2s ease-out;
+    font-family: Roboto;
+}
+
+#add-compare-icon {
+    transition: .2s ease-out;
+}
+
+#add-compare:hover > #add-compare-icon {
+    color: red;
+}
+
+#move-right, #move-left {
+    transition: .2s ease-out;
+    position: fixed;
+    z-index: 999;
+    color: #334C7F;
+    transform: translateY(25px);
+}
+
+#move-right:hover, #move-left:hover {
+    color: #6699ff;
+}
+
+#move-right {
+    right: 0;
+}
+
+#slider {
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.phone-panel {
+    display: inline-block;
+    text-decoration: none;
+    width: 170px;
+}
+
+.feature, #mod-header {
+    position: absolute;
+}
+
+.feature + div {
+    margin-top: 30px;
+}
+
+img {
+    display: block;
+}
+
+.phone-panel > div > * {
+}
+
+.phone-panel > div {
+	text-align: center;
+}
+
+
+a.compare {
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+}
+
+.compare-item {
+    display: inline-block;
+    width: 200px;
+    border-radius: 30px;
+    transition: .3s
+}
+
+.compare-item:hover {
+    background-color: #334C7FCC;
+}
+
+.compare-item > div > *, .compare-item > *, .compare-item {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#preview {
+    min-height: 150px;
+}
+
+#preview > * {
+    display: inline-block;
+}
+
+footer {
+	text-align: center;
+	font-weight: 100;
+	font-size: 12pt;
+	margin-top: 20px;
+    padding-bottom: 16px;
+}
+
+footer a {
+	color: black;
+}
+
+a {
+    text-decoration: none;
+}
+
+.panel {
+    background: lightcyan;
+    border: solid;
+    border-color: gray;
+    border-radius: 30px;
+}
+
+#content {
+    height: 100%;
+}
+
+#container > h1, #container > p {
+    padding: 25px;
+    margin: 0;
+}
+
+#slider-container {
+
+}
+
+#scroll > * {
+    padding-left: 50px;
+}
+
+#slider > * {
+    margin: 5px;
+}
+
+hr {
+    padding: 0;
+    width: inherit;
+}
+
+p {
+    margin: 16px 0 0;
+}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="container">
+        <h1>{% block title %} Here are Our Phones {% endblock %}</h1>
+        <div id="slide-container">
+            <div id="slider">
+                <div id="scroll">
+                    <div id="preview">
+                    <i id="move-left" onclick="move(-200)" class="fa fa-arrow-circle-left fa-5x" aria-hidden="true"></i>
+                    <i id="move-right" onclick="move(200)" class="fa fa-arrow-circle-right fa-5x" aria-hidden="true"></i>
+                    {% for phone in phones %}
+                        <div class="compare-item" data-item="{{ phone['id'] }}" style="cursor: pointer">
+                            <div onclick="window.location='/item/{{ phone['id'] }}'">
+                            <img width="auto" height="100px" src="{{ url_for('static', filename='img/' + phone['vendor'] + ' ' + phone['model'] + '.png') }}"/>
+                            <h1 style="margin: 10px 0 0">{{ phone['vendor'] }}</h1>
+                            <h2 style="margin: 0">{{ phone['model'] }}</h2>
+                            <h2>{{ phone['price'] }}₽</h2>
+                            </div>
+                            <button id="add-compare" onclick="switchCart({{ phone['id'] }}, this)"><i id="add-compare-icon" class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i> <span>Добавить в сравнение</span></button>
+                        </div>
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div id="container">
+        <h1>{% block title %} {{ phone['vendor'] }} {{ phone['model'] }} {% endblock %}</h1>
+        <div class="compare-item" data-item="{{ phone['id'] }}" style="display: block; margin: auto;">
+            <img width="auto" height="100px" src="{{ url_for('static', filename='img/' + phone['vendor'] + ' ' + phone['model'] + '.png') }}"/>
+            <h1 style="margin: 10px 0 0">{{ phone['vendor'] }}</h1>
+            <h2 style="margin: 0">{{ phone['model'] }}</h2>
+            <h2>{{ phone['price'] }}₽</h2>
+            <button id="add-compare" onclick="switchCart({{ phone['id'] }}, this)"><i id="add-compare-icon" class="fa fa-plus-square-o fa-2x" aria-hidden="true"></i> <span>Добавить в сравнение</span></button>
+        </div>
+    </div>
+{% endblock %}
